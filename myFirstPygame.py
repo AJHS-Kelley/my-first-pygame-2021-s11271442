@@ -1,4 +1,4 @@
-# My First PyGame, Isiah Carter, 11/30/21, 2:43PM, v0.4
+# My First PyGame, Isiah Carter, 11/30/21, 2:47PM, v0.5
 
 import pygame, sys
 from pygame.locals import *
@@ -26,3 +26,6 @@ text = basicFont.render('Hello, world!', True, WHITE, BLUE)
 textRect = text.get_rect()
 textRect.centerx = windowSurface.get_rect().centerx
 textRect.centery = windowSurface.get_rect().centery
+
+# Draw the game background.
+windowSurface.fill(INDIGO)
