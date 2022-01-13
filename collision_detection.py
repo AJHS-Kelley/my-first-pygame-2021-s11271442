@@ -1,4 +1,4 @@
-#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 8:56am, v0.6
+#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:10am, v0.7
 
 import pygame, sys, random
 from pgame.locals import *
@@ -44,17 +44,21 @@ for i in range(20):
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == KEYDOWN:
-                #Change the keyboard variables.
-                if event.ke == K_LEFT or event.key == K_a:
-                    moveRight = False
-                    moveLeft = True
-                if event.key == K_RIGHT or event.key == K_d:
-                    moveLeft = False
-                    moveRight = True
-                if event.key == K_UP or event.key == K_w:
-                    moveDown = False
-                    moveUp = True
-                if event.key == K_DOWN or event.key == K_s:
-                    moveUp = False
-                    moveDown = True
+            #Check to see if the player has stopped moving.
+            if event.key == K_LEFT or event.key == K_a:
+                moveLeft = False
+            if event.key == K_RIGHT or event.key == K_d:
+                moveRight = False
+            if event.key == K_UP or event.key == K_w:
+                moveUp = False
+            if event.key == K_DOWN or event.key == K_s:
+                moveDown = False
+            if event.key == K_x: #Use x to telport the player
+                player.top = random.randint(0, WINDOWHEIGHT - player.height)
+                player.left = random.randint(0, WINDOWWIDTH - player.wdith)
+
+            
+
+
+
+       
