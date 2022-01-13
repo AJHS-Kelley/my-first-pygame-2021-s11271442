@@ -1,4 +1,4 @@
-#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:33am, v1.0
+#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:33am, v1.1a BUGFIX
 
 import pygame, sys, random
 from pgame.locals import *
@@ -75,10 +75,10 @@ while True:
                 player.left = random.randint(0, WINDOWWIDTH - player.width)
 
         if event.type == MOUSEBUTTONUP:
-            foods.append(pygame.Rect(event.pos[0], event.pos[1]), FOODSIZE, FOODSZIE))
+            foods.append(pygame.Rect(event.pos[0], event.pos[1], FOODSIZE, FOODSZIE))
 
     foodCounter += 1
-    if foodCounter => NEWFOOD:
+    if foodCounter >= NEWFOOD:
         #Add new food.
         foodCounter = 0
         foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH = FOODSIZE), random.randint(0, WINDOWHEIGHT = FOODSIZE), FOODSIZE, FOODSIZE))
