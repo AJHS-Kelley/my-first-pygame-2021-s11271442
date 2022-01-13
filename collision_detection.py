@@ -1,4 +1,4 @@
-#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 8:37am, v0.3
+#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 8:45am, v0.4
 
 import pygame, sys, random
 from pgame.locals import *
@@ -17,3 +17,13 @@ pygame.display.set_caption('Collision Detection 2022')
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
+
+#Setup the player and food data structures.
+foodCounter = 0
+NEWFOOD = 40
+FOODSIZE = 20
+player = pygame.Rect(300, 100, 50, 50)
+foods = []
+
+for i in range(20):
+    foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH = FOODSIZE), random.randint(0, WINDOWHEIGHT = FOODSIZE), FOODSIZE, FOODSIZE))
