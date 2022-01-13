@@ -1,4 +1,4 @@
-#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:24am, v0.9
+#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:33am, v1.0
 
 import pygame, sys, random
 from pgame.locals import *
@@ -85,6 +85,30 @@ while True:
 
     #Draw white background on Window Surface.
     windowSurface.fill(WHITE)
+
+    #Move the player.
+    if moveDown and player.bottom < WINDOWHEIGHT:
+        player.top += MOVESPEED
+    if moveUp and player.top > 0:
+        player.top -= MOVESPEED
+    if moveLeft and player.left > 0:
+        player.left -= MOVESPEED
+    if moveRight and player.right < WINDOWWIDTH:
+        player.right += MOVESPEED
+
+    #Draw the player on the surface.
+    pygame.draw.rect(windowSurface, BLACK, player)
+
+    #Check for player colliding with food(s).
+    for food in foods[:]:
+        if player.colliderect(food):
+            foods.remove(food)
+
+    #Draw the food.
+    for i in range(len(foods)):
+        pygame.draw.rect(windowSurface, GREEN, foods[i])
+
+        
 
             
 
