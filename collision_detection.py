@@ -1,4 +1,4 @@
-#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:10am, v0.7
+#PyGame Collision Practice, Ryan Kelley, January 04, 2022, 9:18am, v0.8
 
 import pygame, sys, random
 from pgame.locals import *
@@ -36,12 +36,29 @@ for i in range(20):
 
     MOVESPEED = 6
 
-    #Run the game loop.
-
-    while True:
-        #Check for events.
-        for event in pygame.event.get():
-            if event.type == QUIT:
+#Run the game loop.
+while True:
+    #Check for events.
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+        if event.type == KEYDOWN:
+            #Change the keyboard variables.
+            if event.key == K_LEFT or event.key == K_a:
+                moveRight = False
+                moveLeft = True
+            if event.key == K_RIGHT or event.key == K_d:
+                moveLeft = False
+                moveRight = True
+            if event.key == K_UP or event.key == K_w:
+                moveDown = False
+                moveUp = True
+            if event.key == K_DOWN or event.key == K_s:
+                moveUp = False
+                moveDown = True
+        if event.type ==KEYUP:
+            if event.key == K_ESCAPE:
                 pygame.quit()
                 sys.exit()
             #Check to see if the player has stopped moving.
@@ -55,7 +72,10 @@ for i in range(20):
                 moveDown = False
             if event.key == K_x: #Use x to telport the player
                 player.top = random.randint(0, WINDOWHEIGHT - player.height)
-                player.left = random.randint(0, WINDOWWIDTH - player.wdith)
+                player.left = random.randint(0, WINDOWWIDTH - player.width)
+
+        if event.type == MOUSEBUTTONUP:
+            foods.append(pygame.Rect(event.pos[0], event.pos[1]), FOODSIZE, FOODSZIE))
 
             
 
